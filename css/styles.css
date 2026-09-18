@@ -1,0 +1,2382 @@
+/* =========================================================
+   1. VARIABLES GENERALES
+========================================================= */
+
+:root {
+  --cream: #fff4e9;
+  --ink: #3b1738;
+
+  --blue: #a8d0e6;
+  --blue-light: #b8d5e2;
+
+  --periwinkle: #97a8ca;
+  --violet: #b7ace0;
+
+  --deep: #6872a5;
+  --deep-dark: #4b58a1;
+
+  --gold: #d8a12b;
+
+  --shadow: 0 18px 32px rgba(54, 39, 68, 0.22);
+
+  --radius: 26px;
+}
+
+
+/* =========================================================
+   2. AJUSTES GENERALES
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+
+  background: var(--cream);
+  color: var(--ink);
+
+  font-family: "Comfortaa", system-ui, sans-serif;
+
+  line-height: 1.62;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   3. HEADER
+========================================================= */
+
+.site-header {
+  height: 82px;
+
+  padding: 0 5vw;
+
+  background: #9fc9e1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: sticky;
+  top: 0;
+
+  z-index: 100;
+
+  box-shadow: 0 8px 18px rgba(42, 37, 54, 0.16);
+}
+
+
+.brand {
+  display: none;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   4. MENÚ
+========================================================= */
+
+.main-nav {
+  display: flex;
+  align-items: center;
+
+  gap: clamp(24px, 5vw, 72px);
+
+  font-family: Georgia, serif;
+  font-size: 1.08rem;
+}
+
+
+.main-nav a {
+  position: relative;
+}
+
+
+.main-nav a:not(.nav-cta)::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 100%;
+  bottom: -7px;
+
+  height: 2px;
+
+  background: var(--deep-dark);
+
+  transition: 0.25s;
+}
+
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
+  right: 0;
+}
+
+
+.nav-cta {
+  padding: 11px 28px;
+
+  background: var(--deep-dark);
+  color: #ffe7bd;
+
+  border-radius: 999px;
+
+  box-shadow: 0 10px 18px rgba(58, 68, 132, 0.28);
+}
+
+
+/* =========================================================
+   5. BOTÓN DEL MENÚ EN CELULAR
+========================================================= */
+
+.menu-toggle {
+  display: none;
+
+  padding: 8px;
+
+  background: none;
+  border: 0;
+
+  cursor: pointer;
+}
+
+
+.menu-toggle span {
+  display: block;
+
+  width: 28px;
+  height: 3px;
+
+  margin: 5px;
+
+  background: var(--ink);
+
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   6. HERO / PORTADA
+========================================================= */
+
+.hero {
+  min-height: 640px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 70px 6vw 0;
+
+  text-align: center;
+}
+
+
+.hero-copy {
+  position: relative;
+  z-index: 4;
+}
+
+
+.hero h1 {
+  margin: 36px 0 8px;
+
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+
+  font-size: clamp(5.1rem, 10vw, 9.2rem);
+  line-height: 0.82;
+
+  text-shadow: 5px 7px 0 rgba(85, 47, 87, 0.1);
+}
+
+
+.hero-name {
+  margin: 18px 0;
+
+  color: #d49f35;
+
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+
+  font-size: clamp(1.45rem, 2.4vw, 2.25rem);
+  line-height: 1;
+
+  letter-spacing: 0.03em;
+}
+
+
+.hero-role {
+  margin: 22px 0;
+
+  font-family: "Sacramento", cursive;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   7. BOTONES DEL HERO
+========================================================= */
+
+.hero-actions {
+  position: absolute;
+
+  z-index: 8;
+
+  left: 18%;
+  right: 15%;
+  bottom: 106px;
+
+  display: flex;
+
+  justify-content: space-between;
+}
+
+
+.pill-btn {
+  padding: 18px 43px;
+
+  background: #ffe2aa;
+
+  border-radius: 28px;
+
+  font-family: "Sacramento", cursive;
+  font-size: 1.8rem;
+  line-height: 1;
+
+  box-shadow: var(--shadow);
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+
+.pill-btn:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 20px 34px rgba(54, 39, 68, 0.3);
+}
+
+
+/* =========================================================
+   IMAGEN COMPLETA DE LAS NUBES
+========================================================= */
+
+.clouds {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -80px;
+
+  width: 100%;
+  height: 570px;
+
+  overflow: hidden;
+
+  background: #6872a5;
+
+  z-index: 2;
+}
+
+.cloud-extra {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  transform: translateX(-50%);
+
+  object-fit: cover;
+  object-position: bottom center;
+
+  pointer-events: none;
+}
+/* =========================================
+   ESTRELLAS DEL HERO
+========================================= */
+
+.hero-star {
+  position: absolute;
+
+  /* Tamaño base de las estrellas */
+  width: 60px;
+  height: auto;
+
+  object-fit: contain;
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+
+/* ESTRELLA 1 */
+.star-1 {
+  width: 70px;
+
+  top: 80px;
+  left: 8%;
+}
+
+
+/* ESTRELLA 2 */
+.star-2 {
+  width: 45px;
+
+  top: 40px;
+  left: 30%;
+
+  transform: rotate(20deg);
+}
+
+
+/* ESTRELLA 3 */
+.star-3 {
+  width: 55px;
+
+  top: 100px;
+  right: 12%;
+
+  transform: rotate(-15deg);
+}
+
+
+/* ESTRELLA 4 */
+.star-4 {
+  width: 35px;
+
+  top: 250px;
+  right: 22%;
+
+  transform: rotate(25deg);
+}
+/* =========================================================
+   9. ESTRUCTURA GENERAL DE LAS SECCIONES
+========================================================= */
+
+.section {
+  width: min(1180px, 90vw);
+
+  margin: 0 auto;
+
+  padding: 90px 0;
+}
+
+
+.display-title {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  line-height: 1;
+}
+
+
+.section-title {
+  display: inline-block;
+}
+
+
+.title-rule {
+  width: min(650px, 70vw);
+  height: 4px;
+
+  margin: 7px 0 40px;
+
+  background: var(--deep);
+
+  border-radius: 6px;
+}
+
+
+.title-rule.short {
+  width: 420px;
+}
+
+
+/* =========================================================
+   10. SOBRE MÍ
+========================================================= */
+
+.about-grid {
+  display: grid;
+
+  grid-template-columns: 320px 1fr;
+
+  gap: 55px;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   FOTO DE PERFIL — CÍRCULO PERFECTO
+========================================================= */
+
+.portrait-placeholder {
+  width: 310px;
+
+  /* Esto obliga a que ancho y alto siempre sean iguales */
+  aspect-ratio: 1 / 1;
+
+  /* Evita que Grid/Flex lo estire */
+  min-width: 310px;
+  min-height: 310px;
+  flex-shrink: 0;
+
+  margin: 0 auto;
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  border: 4px solid #97a8ca;
+  background: #fff;
+
+  box-shadow: 0 10px 25px rgba(54, 39, 68, 0.12);
+}
+
+
+/* Imagen dentro del círculo */
+.portrait-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 50%;
+}
+
+/* =========================================================
+   INFORMACIÓN DE SOBRE MÍ
+========================================================= */
+
+.about-facts {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 12px 28px;
+
+  margin-bottom: 34px;
+}
+
+
+.fact-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+.fact-item p {
+  margin: 0;
+
+  font-size: 0.97rem;
+}
+
+
+.fact-icon {
+  width: 50px;
+  height: 50px;
+
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+
+/* Cuando agregues imágenes a los iconos */
+
+.fact-icon {
+  width: 50px;
+  height: 50px;
+
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+
+.about-content p {
+  margin: 0.6em 0;
+}
+
+
+.lead {
+  font-size: 1.12rem;
+}
+
+
+/* =========================================================
+   11. ESPACIOS DE IMAGEN GENERALES
+========================================================= */
+
+.image-placeholder {
+  overflow: hidden;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 2px dashed rgba(75, 88, 161, 0.45);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(183, 172, 224, 0.3),
+      rgba(168, 208, 230, 0.38)
+    );
+
+  color: rgba(59, 23, 56, 0.62);
+
+  font-size: 0.40rem;
+
+  text-align: center;
+}
+
+
+/* Las imágenes que metas dentro de placeholders */
+
+.image-placeholder > img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   12. LO QUE YO HAGO
+========================================================= */
+
+.tall-title {
+  margin: 0;
+
+  color: #8f82bc;
+
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  line-height: 1;
+
+  letter-spacing: 0.02em;
+}
+
+.service-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 44px;
+
+  margin-top: 48px;
+}
+
+
+/* TARJETA */
+.service-card {
+  min-height: 430px;
+
+  padding: 28px 26px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 18px;
+
+  box-shadow: var(--shadow);
+}
+
+
+/* =========================================================
+   ICONO + TÍTULO
+========================================================= */
+
+.service-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  margin-bottom: 25px;
+}
+
+
+/* CÍRCULO DEL ICONO */
+.service-icon-circle {
+  width: 65px;
+  height: 65px;
+
+  flex: 0 0 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.35);
+}
+
+
+/* IMAGEN DEL ICONO */
+.service-icon-image {
+  width: 40px;
+  height: 40px;
+
+  object-fit: contain;
+}
+
+
+/* TÍTULO */
+.service-card h3 {
+  margin: 0;
+
+  font-family: Georgia, serif;
+
+  font-size: 1.05rem;
+  line-height: 1.05;
+
+  letter-spacing: 0.03em;
+
+  text-align: left;
+}
+
+
+/* TEXTO */
+.service-card p {
+  margin: 0;
+
+  font-size: 0.85rem;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   ESPACIO PARA IMAGEN AL FINAL
+========================================================= */
+
+.service-image-space {
+  width: 85%;
+  height: 120px;
+  margin: auto auto 0;
+
+  overflow: hidden;
+
+}
+
+
+/* CUANDO PONGAS UNA IMAGEN REAL */
+.service-image-space img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+
+}
+
+
+/* COLORES DE LAS TARJETAS */
+
+.lilac {
+  background: #b9c2e7;
+}
+
+.violet {
+  background: #c8bced;
+}
+
+.sky {
+  background: #c9e8f6;
+}
+
+/* =========================================================
+   ANIMACIÓN DE TARJETAS - LO QUE YO HAGO
+========================================================= */
+
+/* Estado inicial */
+.reveal-card {
+  opacity: 0;
+
+  transform: translateY(70px) scale(0.96);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+
+  will-change: transform, opacity;
+}
+
+
+/* Cuando la tarjeta entra en pantalla */
+.reveal-card.show {
+  opacity: 1;
+
+  transform: translateY(0) scale(1);
+}
+
+
+/* Hace que aparezcan una después de otra */
+.reveal-card:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.reveal-card:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.reveal-card:nth-child(3) {
+  transition-delay: 0.30s;
+}
+
+.reveal-card:nth-child(4) {
+  transition-delay: 0.45s;
+}
+
+.service-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.service-card.show:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  box-shadow: 0 25px 40px rgba(54, 39, 68, 0.25);
+}
+
+/* Cuando agregues el icono */
+
+.service-icon-image {
+  width: 42px;
+  height: 42px;
+
+  object-fit: contain;
+}
+
+
+.lilac {
+  background: #b0bce8;
+}
+
+
+.violet {
+  background: #c8bced;
+}
+
+
+.sky {
+  background: #c1e6f4;
+}
+
+
+/* Imagen pequeña dentro de tarjeta */
+
+.mini-placeholder {
+  width: 78%;
+  height: 105px;
+
+  margin: 25px auto 0;
+
+  overflow: hidden;
+
+  border: 1px dashed rgba(59, 23, 56, 0.3);
+
+  display: grid;
+
+  place-items: center;
+
+  font-size: 0.72rem;
+}
+
+
+.mini-placeholder img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+
+.mini-placeholder.phone {
+  width: 36%;
+  height: 120px;
+
+  border-radius: 12px;
+}
+
+
+/* =========================================================
+   13. HABILIDADES
+========================================================= */
+
+.skills {
+  background: #b8d2df;
+}
+
+
+.inner {
+  padding-top: 58px;
+  padding-bottom: 64px;
+}
+
+
+.centered {
+  text-align: center;
+}
+
+
+.light {
+  color: #fff5e8;
+
+  text-shadow: 0 3px 0 rgba(90, 87, 130, 0.35);
+}
+
+
+.flip-hint {
+  margin-top: 10px;
+
+  color: #56637d;
+
+  font-size: 0.82rem;
+
+  text-align: center;
+}
+
+
+.skill-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 50px;
+
+  margin-top: 36px;
+}
+
+
+/* =========================================================
+   TARJETAS GIRATORIAS
+========================================================= */
+
+.flip-card {
+  height: 250px;
+
+  perspective: 1000px;
+
+  outline: none;
+
+  cursor: pointer;
+}
+
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+
+  transition: transform 0.65s;
+
+  transform-style: preserve-3d;
+}
+
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus .flip-card-inner,
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip-face {
+  position: absolute;
+
+  inset: 0;
+
+  padding: 28px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  color: #fffaf2;
+
+  background: #94a5c2;
+
+  border-radius: 28px;
+
+  box-shadow: var(--shadow);
+
+  backface-visibility: hidden;
+}
+
+
+.flip-front h3,
+.other-skills h3 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+
+  font-size: 2rem;
+  line-height: 1;
+}
+
+
+.big-icon {
+  width: 90px;
+  height: 90px;
+
+  display: grid;
+
+  place-items: center;
+}
+
+
+/* Cuando agregues tus imágenes */
+
+.skill-icon {
+  width: 90%;
+  height: 90%;
+
+  object-fit: contain;
+}
+
+
+.flip-back {
+  background: #7f90bc;
+
+  transform: rotateY(180deg);
+}
+
+
+.flip-back h3 {
+  margin: 0 0 14px;
+
+  font-family: "Oswald", sans-serif;
+
+  font-size: 1.55rem;
+  font-weight: 400;
+}
+
+
+.flip-back p {
+  margin: 0.3em 0;
+}
+
+
+/* =========================================================
+   OTRAS HABILIDADES
+========================================================= */
+
+.other-skills {
+  margin-top: 34px;
+
+  padding: 18px 25px 28px;
+
+  color: #fff;
+
+  background: #94a5c2;
+
+  border-radius: 28px;
+
+  box-shadow: var(--shadow);
+
+  text-align: center;
+}
+
+
+.other-skills h3 {
+  margin: 0 0 20px;
+
+  font-family: "Oswald", sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+
+/* Contenedor de todos los programas */
+.other-list {
+  display: grid;
+
+  grid-template-columns: repeat(7, 1fr);
+
+  gap: 20px;
+
+  align-items: end;
+}
+
+
+/* Cada icono + texto */
+.other-skill {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  min-width: 0;
+}
+
+
+/* ICONOS */
+.other-skill-icon {
+  width: 120px;
+  height: 80px;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+
+/* NOMBRE */
+.other-skill span {
+  font-family: Georgia, serif;
+
+  font-size: 0.9rem;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   14. EDUCACIÓN
+========================================================= */
+
+.two-col {
+  display: grid;
+
+  grid-template-columns: 1.15fr 0.85fr;
+
+  gap: 60px;
+
+  align-items: center;
+}
+
+
+.timeline-panel {
+  padding: 34px;
+
+  background: rgba(183, 172, 224, 0.45);
+
+  border-radius: 30px;
+}
+
+
+.timeline-item {
+  display: grid;
+
+  grid-template-columns: 50px 1fr;
+
+  gap: 40px;
+
+  padding: 30px 0;
+
+  border-bottom: 1px solid rgba(59, 23, 56, 0.18);
+}
+
+
+.dot {
+  width: 14px;
+  height: 14px;
+
+  margin-top: 8px;
+
+  background: var(--deep-dark);
+
+  border-radius: 50%;
+}
+
+
+.timeline-item h3,
+.certs h3 {
+  margin: 0 0 8px;
+
+  font-family: "Oswald", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+
+.timeline-item p,
+.certs p {
+  margin: 3px 0;
+}
+
+
+.landscape {
+  width: 400px;
+  height: 500px;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  box-shadow: 18px -18px 0 #96a3d0;
+}
+
+.landscape img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: inherit;
+}
+
+/* =========================================================
+   15. EXPERIENCIA
+========================================================= */
+
+.right-title {
+  text-align: right;
+}
+
+
+.project-story > h3 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+
+  letter-spacing: 0.12em;
+}
+
+
+.story-grid {
+  display: grid;
+
+  grid-template-columns: 0.38fr 0.62fr;
+
+  gap: 35px;
+
+  align-items: start;
+}
+
+
+.story-grid ul {
+  padding-left: 20px;
+
+  columns: 2;
+}
+
+
+/* Capturas horizontales */
+
+.wide {
+  min-height: 230px;
+  height: 280px;
+
+  border-radius: 14px;
+}
+
+
+.wide img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: inherit;
+}
+
+
+.tools {
+  margin: 25px 0;
+
+  padding: 18px 22px;
+
+  background: rgba(183, 172, 224, 0.35);
+
+  border-radius: 16px;
+}
+
+
+.admin-placeholder {
+  height: 280px;
+
+  margin: 30px 0;
+
+  border-radius: 18px;
+}
+
+
+/* =========================================================
+   RESPONSIVE CELULAR / TABLET / COMPUTADORA
+========================================================= */
+
+.responsive-row {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+
+  margin: 34px 0;
+}
+
+
+.responsive-item {
+  padding: 18px;
+
+  border-top: 3px solid #d68fa8;
+
+  text-align: center;
+}
+
+
+.responsive-icon-space {
+  width: 80px;
+  height: 80px;
+
+  margin: 0 auto 10px;
+}
+
+
+.responsive-icon {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+
+.responsive-row span {
+  display: block;
+
+  font-family: "Oswald", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+
+  letter-spacing: 0.12em;
+}
+
+
+.site-status {
+  text-align: center;
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  /* Evita que el header fijo tape el inicio de las secciones */
+  section {
+    scroll-margin-top: 100px;
+  }
+
+
+  /* =========================
+     HABILIDADES
+  ========================== */
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+
+  /* =========================
+     EDUCACIÓN
+  ========================== */
+
+  .two-col {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .landscape {
+    width: min(380px, 90%);
+    height: 460px;
+
+    margin: 0 auto;
+  }
+
+  .landscape img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE - CELULAR
+========================================================= */
+
+@media (max-width: 640px) {
+
+  /* ---------------------------------------------------------
+     ESPACIADO GENERAL
+  --------------------------------------------------------- */
+
+  .section {
+    padding: 65px 20px;
+  }
+
+  .section-title {
+    font-size: clamp(3rem, 13vw, 4.3rem);
+  }
+
+
+  /* =========================================================
+     HABILIDADES
+  ========================================================= */
+
+  #habilidades {
+    padding-top: 80px;
+  }
+
+  .skills-grid {
+    display: grid;
+
+    /* UNA tarjeta por fila */
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+
+    width: 100%;
+
+    margin-top: 30px;
+  }
+
+
+  .skill-card {
+    width: 100%;
+
+    /* Evita las tarjetas gigantes de tu captura */
+    min-height: 260px;
+    height: 260px;
+
+    margin: 0 auto;
+
+    border-radius: 24px;
+  }
+
+
+  /* Parte delantera y trasera de las tarjetas */
+  .skill-face {
+    padding: 25px 20px;
+  }
+
+
+  .skill-card h3 {
+    font-size: 1.7rem;
+  }
+
+
+  /* Si tus iconos tienen esta clase */
+  .skill-icon {
+    width: 90px;
+    height: 90px;
+
+    object-fit: contain;
+  }
+
+
+  /* =========================================================
+     OTRAS HABILIDADES
+  ========================================================= */
+
+  .other-skills {
+    margin-top: 25px;
+
+    padding: 25px 18px;
+
+    border-radius: 24px;
+  }
+
+
+  .other-list {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px 15px;
+  }
+
+
+  .other-skill-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+
+  /* =========================================================
+     EDUCACIÓN
+  ========================================================= */
+
+  #educacion {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+
+  #educacion .two-col {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 40px;
+
+    width: 100%;
+  }
+
+
+  /* PANEL CON INFORMACIÓN */
+  .timeline-panel {
+    width: 100%;
+
+    padding: 25px 20px;
+
+    border-radius: 25px;
+
+    box-sizing: border-box;
+  }
+
+
+  .timeline-item {
+    grid-template-columns: 25px 1fr;
+
+    gap: 12px;
+
+    padding: 22px 0;
+  }
+
+
+  /* =========================================================
+     FOTO UNIVERSIDAD
+  ========================================================= */
+
+  .landscape {
+    /* Importante: anulamos tamaños de escritorio */
+    width: min(330px, 90%);
+    height: auto;
+
+    aspect-ratio: 3 / 4;
+
+    margin: 0 auto;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 12px -12px 0 #96a3d0;
+  }
+
+
+  .landscape img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: inherit;
+  }
+
+}
+
+/* =========================================================
+   16. PROYECTOS
+========================================================= */
+
+.gold {
+  color: #a67f25;
+}
+
+
+.project-row {
+  display: grid;
+
+  grid-template-columns: 0.45fr 0.55fr;
+
+  gap: 50px;
+
+  align-items: center;
+
+  margin: 30px 0 65px;
+}
+
+
+.project-row h3,
+.game-copy h3 {
+  margin: 0.2em 0;
+
+  font-family: "Oswald", sans-serif;
+
+  font-size: 2.1rem;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   17. HOPESPELL
+========================================================= */
+
+.game-card {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 30px;
+}
+
+
+.game-banner {
+  grid-column: 1 / -1;
+
+  height: 340px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #97d7a3,
+      #81c6d6
+    );
+}
+
+
+/* =========================================================
+   SPRITES
+
+   Los hice más grandes que antes.
+========================================================= */
+
+.sprite-strip {
+  grid-column: 1 / -1;
+
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+
+  gap: 22px;
+
+  margin-top: 20px;
+}
+
+
+.sprite-strip > div {
+  min-height: 170px;
+
+  padding: 12px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  background: #fff9ef;
+
+  border: 2px solid #402039;
+
+  border-radius: 16px;
+
+  box-shadow: 0 10px 18px rgba(54, 39, 68, 0.12);
+}
+
+
+/*
+   La imagen nunca será más grande
+   que su recuadro.
+*/
+
+.sprite-strip img {
+  width: 100%;
+  height: 125px;
+
+  object-fit: contain;
+
+  object-position: center;
+}
+
+
+/* Texto Sprite 1, Sprite 2, etc. */
+
+.sprite-strip > div {
+  font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   18. CONTACTO
+========================================================= */
+
+.contact {
+  margin-top: 80px;
+
+  position: relative;
+
+  color: #fff5e8;
+
+  background: var(--deep);
+}
+
+
+.cloud-top {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: -80px;
+
+  height: 90px;
+
+  background:
+    radial-gradient(circle at 6% 100%, #6872a5 0 35%, transparent 36%),
+    radial-gradient(circle at 20% 100%, #6872a5 0 45%, transparent 46%),
+    radial-gradient(circle at 36% 100%, #6872a5 0 37%, transparent 38%),
+    radial-gradient(circle at 56% 100%, #6872a5 0 44%, transparent 45%),
+    radial-gradient(circle at 77% 100%, #6872a5 0 38%, transparent 39%),
+    radial-gradient(circle at 94% 100%, #6872a5 0 43%, transparent 44%);
+}
+
+
+.contact-inner {
+  padding-top: 70px;
+}
+
+
+.contact-grid {
+  display: grid;
+
+  grid-template-columns: 0.55fr 0.45fr;
+
+  gap: 50px;
+
+  align-items: center;
+}
+
+
+.contact-links {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 22px;
+
+  font-size: 1.1rem;
+}
+
+
+.contact-links a {
+  width: fit-content;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  border-bottom: 1px solid transparent;
+}
+
+
+.contact-links a:hover {
+  border-bottom-color: #fff5e8;
+}
+
+
+.contact-icon-space {
+  width: 35px;
+  height: 35px;
+
+  flex: 0 0 35px;
+}
+
+
+.contact-icon {
+  width: 35px;
+  height: 35px;
+
+  object-fit: contain;
+}
+
+
+.contact-photo {
+  height: 300px;
+
+  color: #fff5e8;
+
+  border-color: rgba(255, 245, 232, 0.5);
+}
+
+
+/* =========================================================
+   19. FOOTER
+========================================================= */
+
+.site-footer {
+  padding: 38px max(5vw, 30px) 22px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 30px;
+
+  color: #fff5e8;
+
+  background: #56618f;
+}
+
+
+.site-footer div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+
+.site-footer b {
+  font-family: "Oswald", sans-serif;
+
+  font-size: 1.2rem;
+  font-weight: 400;
+
+  letter-spacing: 0.08em;
+}
+
+
+.site-footer a {
+  font-size: 0.82rem;
+}
+
+
+.site-footer p {
+  grid-column: 1 / -1;
+
+  margin: 15px 0 0;
+
+  text-align: center;
+
+  font-family: Georgia, serif;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   20. TABLETS
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .site-header {
+    justify-content: space-between;
+  }
+
+
+  .brand,
+  .menu-toggle {
+    display: block;
+  }
+
+
+  .main-nav {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 82px;
+
+    display: grid;
+
+    gap: 0;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    background: #9fc9e1;
+
+    transition: max-height 0.35s;
+  }
+
+
+  .main-nav.open {
+    max-height: 430px;
+  }
+
+
+  .main-nav a {
+    padding: 15px 7vw;
+
+    border-top: 1px solid rgba(59, 23, 56, 0.08);
+  }
+
+
+  .nav-cta {
+    border-radius: 0;
+
+    box-shadow: none;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height: 650px;
+  }
+
+
+  .hero-actions {
+    left: 8%;
+    right: 8%;
+    bottom: 92px;
+  }
+
+
+  /* SOBRE MÍ */
+
+  .about-grid,
+  .two-col,
+  .story-grid,
+  .project-row,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .about-grid {
+    gap: 38px;
+  }
+
+
+  .portrait-placeholder {
+    width: 280px;
+    height: 280px;
+
+    margin: auto;
+  }
+
+
+  /* SERVICIOS */
+
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  /* HABILIDADES */
+
+  .skill-grid {
+    gap: 24px;
+  }
+
+
+  .other-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+
+  /* EDUCACIÓN */
+
+  .landscape {
+    order: -1;
+  }
+
+
+  /* HOPESPELL */
+
+  .game-card {
+    grid-template-columns: 1fr;
+  }
+
+
+  .game-banner,
+  .sprite-strip {
+    grid-column: auto;
+  }
+
+
+  .sprite-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   21. CELULARES
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .section {
+    width: min(92vw, 560px);
+
+    padding: 65px 0;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height: 590px;
+
+    padding-top: 45px;
+  }
+
+
+  .hero h1 {
+    font-size: 4.5rem;
+  }
+
+
+  .hero-name {
+    font-size: 1.2rem;
+  }
+
+
+  .hero-role {
+    font-size: 1.35rem;
+  }
+
+
+  .hero-actions {
+    left: 6%;
+    right: 6%;
+
+    bottom: 95px;
+
+    gap: 14px;
+  }
+
+
+  .pill-btn {
+    padding: 15px 22px;
+
+    font-size: 1.35rem;
+  }
+
+
+  .clouds {
+    height: 250px;
+  }
+
+
+  /* SOBRE MÍ */
+
+  .about-grid {
+    gap: 30px;
+  }
+
+
+  .portrait-placeholder {
+    width: 235px;
+    height: 235px;
+
+    border-width: 8px;
+  }
+
+
+  .about-facts {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* SERVICIOS */
+
+  .service-grid {
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+  }
+
+
+  .service-card {
+    min-height: 310px;
+  }
+
+
+  /* HABILIDADES */
+
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .flip-card {
+    height: 220px;
+  }
+
+
+  .other-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  /* EXPERIENCIA */
+
+  .story-grid ul {
+    columns: 1;
+  }
+
+
+  .responsive-row {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* PROYECTOS */
+
+  .project-row {
+    gap: 24px;
+  }
+
+
+  /* SPRITES */
+
+  .sprite-strip {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+  }
+
+
+  .sprite-strip > div {
+    min-height: 155px;
+
+    padding: 8px;
+  }
+
+
+  .sprite-strip img {
+    height: 110px;
+  }
+
+
+  /* FOOTER */
+
+  .site-footer {
+    grid-template-columns: 1fr;
+  }
+
+
+  .site-footer p {
+    grid-column: auto;
+  }
+
+
+  .display-title {
+    font-size: 3.5rem;
+  }
+
+
+  .title-rule.short {
+    width: 75vw;
+  }
+
+}
+
+
+/* =========================================================
+   22. CELULARES MUY PEQUEÑOS
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .hero h1 {
+    font-size: 3.9rem;
+  }
+
+
+  .hero-actions {
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    bottom: 65px;
+  }
+
+
+  .pill-btn {
+    min-width: 160px;
+  }
+
+
+  .portrait-placeholder {
+    width: 215px;
+    height: 215px;
+  }
+
+
+  /* Un sprite por fila si la pantalla es muy pequeña */
+
+  .sprite-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .sprite-strip > div {
+    min-height: 145px;
+  }
+
+
+  .sprite-strip img {
+    height: 100px;
+  }
+
+}
+
+/* =========================================================
+   VIDEO HOPESPELL
+========================================================= */
+
+.game-menu-shot {
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.hopespell-video {
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  border-radius: inherit;
+
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+
+  #habilidades {
+    position: relative;
+
+    height: auto;
+    min-height: auto;
+
+    overflow: visible;
+  }
+
+  #habilidades .container {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+  }
+
+  .skills-grid {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    transform: none;
+  }
+
+}
+
+/* =========================================================
+   23. ACCESIBILIDAD
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .reveal-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+}
+/* =========================================================
+   24. REDISEÑO DESDE EXPERIENCIA
+   Complementa las reglas anteriores sin afectar las secciones previas.
+========================================================= */
+.experience-rule { margin-left: auto; width: min(520px, 65vw); }
+.experience-project, .project-block, .hopespell { margin-top: 34px; }
+.experience-heading { max-width: 760px; margin-bottom: 45px; }
+.eyebrow { color: #d58c9f; font-family: "Oswald", sans-serif; letter-spacing: .12em; }
+.experience-feature { display:grid; grid-template-columns:.38fr .62fr; gap:45px; align-items:center; margin:45px 0 70px; }
+.experience-feature-reverse { grid-template-columns:.62fr .38fr; }
+.experience-copy h3, .project-copy h4, .responsive-showcase h3 { font-family:"Oswald",sans-serif; font-weight:400; letter-spacing:.08em; }
+.experience-list, .tools-list, .project-copy ul { padding-left:20px; }
+.tools-list { columns:2; }
+.portfolio-shot { margin:0; overflow:hidden; border-radius:16px; background:#fff; box-shadow:0 14px 28px rgba(54,39,68,.22); }
+.portfolio-shot img { width:100%; height:auto; object-fit:contain; }
+.shot-large { min-height:250px; }
+.responsive-showcase { margin-top:60px; text-align:center; }
+.responsive-showcase > p { margin-top:0; }
+.responsive-row { max-width:820px; margin:32px auto; }
+.responsive-item { border-top:0; color:#d87994; }
+.responsive-icon-space { width:95px; height:95px; }
+.projects-rule { width:300px; margin-bottom:25px; background:#c7a23d; }
+.project-intro { margin-bottom:25px; }
+.project-intro h3, .hopespell-heading h3 { margin:0; font-family:"Oswald",sans-serif; font-size:2rem; font-weight:400; letter-spacing:.08em; }
+.project-row { grid-template-columns:.38fr .62fr; margin:25px 0 70px; }
+.project-row-reverse { grid-template-columns:.62fr .38fr; }
+.project-copy p { margin:.55em 0; }
+.hopespell { padding-top:20px; }
+.hopespell-heading { text-align:center; margin-bottom:28px; }
+.game-main-shot, .gameplay-shot, .game-menu-shot { margin:0; overflow:hidden; border-radius:18px; box-shadow:0 14px 28px rgba(54,39,68,.2); }
+.game-main-shot { width:min(900px,100%); margin:0 auto 55px; }
+.game-main-shot img, .gameplay-shot img, .game-menu-shot img { width:100%; height:auto; display:block; }
+.game-detail-row { display:grid; grid-template-columns:.38fr .62fr; gap:45px; align-items:center; margin-bottom:60px; }
+.sprites-title { text-align:center; font-family:"Oswald",sans-serif; font-weight:400; letter-spacing:.08em; }
+.sprite-strip { grid-column:auto; grid-template-columns:repeat(5,1fr); gap:14px; }
+.sprite-strip > div { min-height:135px; padding:8px; border-radius:12px; }
+.sprite-strip img { height:115px; }
+.game-final-row { display:grid; grid-template-columns:.72fr .28fr; gap:35px; align-items:end; margin:65px 0 35px; }
+.character-art { margin:0; display:flex; justify-content:center; align-items:flex-end; }
+.character-art img { max-height:360px; width:auto; object-fit:contain; }
+.compatibility { text-align:center; margin-top:35px; }
+.compatibility h4 { font-family:"Oswald",sans-serif; font-weight:400; letter-spacing:.1em; }
+.compatibility-icons { display:flex; justify-content:center; gap:65px; margin-top:20px; }
+.compatibility-icons > div { display:flex; flex-direction:column; align-items:center; gap:8px; }
+.compatibility-icons img { width:58px; height:58px; object-fit:contain; }
+.compatibility-icons span { font-family:"Oswald",sans-serif; font-size:.75rem; letter-spacing:.1em; }
+.contact-photo { margin:0; height:320px; overflow:hidden; border-radius:16px; box-shadow:0 14px 26px rgba(27,29,61,.25); }
+.contact-photo img { width:100%; height:100%; object-fit:cover; object-position:center; }
+.contact-icon { flex:0 0 35px; }
+
+@media (max-width:900px) {
+  .experience-feature, .experience-feature-reverse, .project-row, .project-row-reverse, .game-detail-row, .game-final-row { grid-template-columns:1fr; }
+  .experience-feature-reverse .portfolio-shot, .project-row-reverse .portfolio-shot { order:2; }
+  .tools-list { columns:2; }
+  .character-art img { max-height:300px; }
+}
+
+@media (max-width:640px) {
+  .experience-feature, .project-row, .game-detail-row { gap:24px; margin:35px 0 50px; }
+  .tools-list { columns:1; }
+  .responsive-row { grid-template-columns:repeat(3,1fr); gap:8px; }
+  .responsive-icon-space { width:64px; height:64px; }
+  .sprite-strip { grid-template-columns:repeat(2,1fr); }
+  .game-final-row { gap:22px; }
+  .compatibility-icons { gap:28px; }
+  .compatibility-icons img { width:48px; height:48px; }
+  .contact-photo { height:260px; }
+}
+
+/* Título rosa de la experiencia */
+.experience-company {
+  font-size: 1.45rem;
+  letter-spacing: 0.18em;
+}
+
+/* Descripción debajo del título */
+.experience-intro {
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 420px) {
+
+  .hero {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .hero h1 {
+    font-size: 15vw;
+  }
+
+  .hero-name {
+    font-size: 1.05rem;
+  }
+
+  .hero-role {
+    font-size: 1.3rem;
+  }
+
+  .star-1 {
+    width: 40px;
+    left: 4%;
+  }
+
+  .star-2 {
+    width: 25px;
+  }
+
+  .star-3 {
+    width: 36px;
+    right: 4%;
+  }
+
+  .star-4 {
+    width: 23px;
+    right: 15%;
+  }
+}
