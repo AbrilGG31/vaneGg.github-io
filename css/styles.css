@@ -181,7 +181,9 @@ img {
 ========================================================= */
 
 .hero {
-  min-height: 640px;
+  /* Ocupa como mínimo toda la pantalla debajo del header.
+     Esto evita que se vea la siguiente sección debajo de las nubes. */
+  min-height: calc(100svh - 82px);
 
   position: relative;
 
@@ -282,42 +284,41 @@ img {
 
 
 /* =========================================================
-   IMAGEN COMPLETA DE LAS NUBES
+   8. NUBES DEL HERO
 ========================================================= */
 
 .clouds {
   position: absolute;
-
   left: 0;
   right: 0;
-  bottom: -80px;
+  bottom: 0;
 
   width: 100%;
-  height: 570px;
+  height: min(470px, 58%);
 
   overflow: hidden;
-
-  background: #6872a5;
-
   z-index: 2;
+
+  /* El mismo azul de la parte inferior del PNG evita huecos
+     si la imagen queda unos píxeles corta. */
+  background: var(--deep);
 }
 
 .cloud-extra {
   position: absolute;
-
   left: 50%;
   bottom: 0;
 
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-width: none;
 
+  display: block;
   transform: translateX(-50%);
-
-  object-fit: cover;
-  object-position: bottom center;
 
   pointer-events: none;
 }
+
 /* =========================================
    ESTRELLAS DEL HERO
 ========================================= */
@@ -1884,7 +1885,7 @@ img {
   /* HERO */
 
   .hero {
-    min-height: 650px;
+    min-height: calc(100svh - 82px);
   }
 
 
@@ -1896,6 +1897,11 @@ img {
 
 
   /* SOBRE MÍ */
+
+#sobre-mi {
+  margin-top: 0;
+}
+
 
   .about-grid,
   .two-col,
@@ -1981,9 +1987,8 @@ img {
   /* HERO */
 
   .hero {
-    min-height: 590px;
-
-    padding-top: 45px;
+    min-height: calc(100svh - 82px);
+    padding: 45px 15px 0;
   }
 
 
@@ -2020,7 +2025,13 @@ img {
 
 
   .clouds {
-    height: 250px;
+    height: 42%;
+    min-height: 245px;
+  }
+
+  .cloud-extra {
+    width: 155%;
+    bottom: 0;
   }
 
 
@@ -2158,6 +2169,15 @@ img {
     justify-content: center;
 
     bottom: 65px;
+  }
+
+  .clouds {
+    height: 43%;
+    min-height: 235px;
+  }
+
+  .cloud-extra {
+    width: 180%;
   }
 
 
@@ -2378,5 +2398,24 @@ img {
   .star-4 {
     width: 23px;
     right: 15%;
+  }
+}
+
+/* =========================================================
+   25. AJUSTES FINALES DEL HERO
+   Mantener al final para que ningún media query anterior los pise.
+========================================================= */
+
+.hero {
+  min-height: calc(100svh - 82px);
+}
+
+.clouds {
+  bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: calc(100svh - 82px);
   }
 }
